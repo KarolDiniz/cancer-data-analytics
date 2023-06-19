@@ -4,6 +4,12 @@ import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class CancerDataScreen {
     public static void showCancerData() {
@@ -47,6 +53,22 @@ public class CancerDataScreen {
         }
 
         JTable table = new JTable(data, headers);
+
+        // Crie um objeto DefaultTableCellRenderer para personalizar a aparência das células
+        DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer() {
+            @Override
+            public java.awt.Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                java.awt.Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                cellComponent.setBackground(new Color(211, 130, 130)); // Define a cor de fundo das células como vermelho
+                return cellComponent;
+            }
+        };
+
+        // Aplique o renderer personalizado a todas as colunas da tabela
+        for (int i = 0; i < table.getColumnCount(); i++) {
+            table.getColumnModel().getColumn(i).setCellRenderer(cellRenderer);
+        }
+
         JScrollPane scrollPane = new JScrollPane(table);
         frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 
