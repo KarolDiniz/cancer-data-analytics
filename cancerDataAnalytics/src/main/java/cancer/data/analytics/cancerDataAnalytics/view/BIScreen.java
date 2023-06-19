@@ -12,7 +12,7 @@ import java.io.File;
 
 public class BIScreen {
     private static int currentIndex = 0;
-    private static String[] imageFiles = { "image1.jpg", "image2.jpg", "image3.jpg" }; // Nomes dos arquivos de imagem
+    private static String[] imageFiles = { "C:\\Users\\carlo\\IdeaProjects\\cancer-data-analytics\\cancerDataAnalytics\\src\\main\\java\\cancer\\data\\analytics\\cancerDataAnalytics\\view\\img\\CancerPulmao.jpg", "image2.jpg", "image3.jpg" }; // Nomes dos arquivos de imagem
 
     public static void showBI() {
         JFrame frame = new JFrame("Business Intelligence");
