@@ -52,5 +52,6 @@ public class CancerDataScreen {
 
         frame.pack();
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 }
