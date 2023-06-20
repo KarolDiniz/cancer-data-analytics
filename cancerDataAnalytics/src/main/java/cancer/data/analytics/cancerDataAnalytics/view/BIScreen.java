@@ -4,15 +4,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 public class BIScreen {
     private static int currentIndex = 0;
-    private static String[] imageFiles = { "C:\\Users\\carlo\\IdeaProjects\\cancer-data-analytics\\cancerDataAnalytics\\src\\main\\java\\cancer\\data\\analytics\\cancerDataAnalytics\\view\\img\\CancerPulmao.jpg", "image2.jpg", "image3.jpg" }; // Nomes dos arquivos de imagem
+    private static String[] imageFiles = { "C:\\Users\\carlo\\IdeaProjects\\cancer-data-analytics\\cancerDataAnalytics\\src\\main\\java\\cancer\\data\\analytics\\cancerDataAnalytics\\view\\img\\municipiosComMaiorMortalidadePorFaixaEtaria.png",
+            "C:\\Users\\carlo\\IdeaProjects\\cancer-data-analytics\\cancerDataAnalytics\\src\\main\\java\\cancer\\data\\analytics\\cancerDataAnalytics\\view\\img\\rankingEmissão.png",
+            "C:\\Users\\carlo\\IdeaProjects\\cancer-data-analytics\\cancerDataAnalytics\\src\\main\\java\\cancer\\data\\analytics\\cancerDataAnalytics\\view\\img\\tabagismoTaxa.png",
+            "C:\\Users\\carlo\\IdeaProjects\\cancer-data-analytics\\cancerDataAnalytics\\src\\main\\java\\cancer\\data\\analytics\\cancerDataAnalytics\\view\\img\\maioresTaxasTabagismo.png"}; // Nomes dos arquivos de imagem
+
+
 
     public static void showBI() {
         JFrame frame = new JFrame("Business Intelligence");
@@ -22,11 +26,21 @@ public class BIScreen {
         JPanel imagePanel = new JPanel(new FlowLayout());
         JLabel imageLabel = new JLabel();
         imagePanel.add(imageLabel);
+        imagePanel.setBackground(Color.WHITE);
+
+        Color buttonColor = new Color(215, 104, 104); // Cor azul escuro
+        Color textColor = Color.WHITE;
 
         JPanel buttonPanel = new JPanel(new FlowLayout());
-        JButton previousButton = new JButton("Anterior");
-        JButton nextButton = new JButton("Próximo");
+        buttonPanel.setBackground(Color.WHITE);
 
+        JButton previousButton = new JButton("Anterior");
+        previousButton.setBackground(buttonColor);
+        previousButton.setForeground(textColor);
+
+        JButton nextButton = new JButton("Próximo");
+        nextButton.setBackground(buttonColor);
+        nextButton.setForeground(textColor);
         previousButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,9 +67,10 @@ public class BIScreen {
         frame.add(imagePanel, BorderLayout.CENTER);
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
-        showImage(imageLabel); // Exibe a primeira imagem
+        showImage(imageLabel);
 
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 
