@@ -40,7 +40,9 @@ public class MenuScreen {
 
         JButton cancerButton = new JButton("Cancer database");
         JButton gasButton = new JButton("Gas emission database");
-        JButton tabagismoButton = new JButton("Tabagismo database");
+        JButton tabagismoButton = new JButton("Smoking database");
+        JButton tabagismoPaisButton = new JButton("Average smoking by country");
+        JButton etlButton = new JButton("ETL process");
         JButton biButton = new JButton("BI: graphics");
         JButton curiosidadesButton = new JButton("BI: text and curiosity");
 
@@ -61,6 +63,14 @@ public class MenuScreen {
         tabagismoButton.setBackground(buttonColor);
         tabagismoButton.setForeground(textColor);
 
+        tabagismoPaisButton.setFont(buttonFont);
+        tabagismoPaisButton.setBackground(buttonColor);
+        tabagismoPaisButton.setForeground(textColor);
+
+        etlButton.setFont(buttonFont);
+        etlButton.setBackground(buttonColor);
+        etlButton.setForeground(textColor);
+
         biButton.setFont(buttonFont);
         biButton.setBackground(buttonColor);
         biButton.setForeground(textColor);
@@ -70,27 +80,32 @@ public class MenuScreen {
         curiosidadesButton.setForeground(textColor);
 
         cancerButton.addActionListener(e -> {
-            // Abra a tela de exibição dos dados de câncer
             CancerDataScreen.showCancerData();
         });
 
         gasButton.addActionListener(e -> {
-            // Abra a tela de exibição dos dados de emissão de gases
             GasDataScreen.showGasData();
         });
 
         tabagismoButton.addActionListener(e -> {
-            // Abra a tela de exibição dos dados de emissão de gases
             TabagismoDataScreen.showTabagismoData();
         });
 
+        tabagismoPaisButton.addActionListener(e -> {
+            SmokingByCountryScreen.showSmokingData();
+        });
+
         biButton.addActionListener(e -> {
-            // Abra a tela de exibição de imagens com os botões de próximo e anterior
-            BIScreen.showBI();
+            BIScreen biScreen = new BIScreen();
+            biScreen.showScreen();
+        });
+
+        etlButton.addActionListener(e -> {
+            ETLScreen etlScreen = new ETLScreen();
+            etlScreen.showScreen();
         });
 
         curiosidadesButton.addActionListener(e -> {
-            // Abra a tela de exibição de curiosidades
             CuriosidadesScreen.showCuriosidades();
         });
 
@@ -113,15 +128,21 @@ public class MenuScreen {
         constraints.gridy = 4;
         panel.add(tabagismoButton, constraints);
 
+        constraints.gridy = 5;
+        panel.add(tabagismoPaisButton, constraints);
+
         constraints.gridy = 6;
-        panel.add(biButton, constraints);
+        panel.add(etlButton, constraints);
 
         constraints.gridy = 7;
+        panel.add(biButton, constraints);
+
+        constraints.gridy = 8;
         panel.add(curiosidadesButton, constraints);
 
         frame.add(panel);
         frame.pack();
-        frame.setLocationRelativeTo(null); // Centraliza a janela na tela
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
