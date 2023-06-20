@@ -40,6 +40,7 @@ public class MenuScreen {
 
         JButton cancerButton = new JButton("Cancer database");
         JButton gasButton = new JButton("Gas emission database");
+        JButton tabagismoButton = new JButton("Tabagismo database");
         JButton biButton = new JButton("BI: graphics");
         JButton curiosidadesButton = new JButton("BI: text and curiosity");
 
@@ -55,6 +56,10 @@ public class MenuScreen {
         gasButton.setFont(buttonFont);
         gasButton.setBackground(buttonColor);
         gasButton.setForeground(textColor);
+
+        tabagismoButton.setFont(buttonFont);
+        tabagismoButton.setBackground(buttonColor);
+        tabagismoButton.setForeground(textColor);
 
         biButton.setFont(buttonFont);
         biButton.setBackground(buttonColor);
@@ -72,6 +77,11 @@ public class MenuScreen {
         gasButton.addActionListener(e -> {
             // Abra a tela de exibição dos dados de emissão de gases
             GasDataScreen.showGasData();
+        });
+
+        tabagismoButton.addActionListener(e -> {
+            // Abra a tela de exibição dos dados de emissão de gases
+            TabagismoDataScreen.showTabagismoData();
         });
 
         biButton.addActionListener(e -> {
@@ -101,9 +111,12 @@ public class MenuScreen {
         panel.add(gasButton, constraints);
 
         constraints.gridy = 4;
+        panel.add(tabagismoButton, constraints);
+
+        constraints.gridy = 6;
         panel.add(biButton, constraints);
 
-        constraints.gridy = 5;
+        constraints.gridy = 7;
         panel.add(curiosidadesButton, constraints);
 
         frame.add(panel);
